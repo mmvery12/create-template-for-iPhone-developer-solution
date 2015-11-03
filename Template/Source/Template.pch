@@ -1,0 +1,14 @@
+//
+//  IHaveDate.pch
+//  IHaveDate
+//
+//  Created by liyuchang on 15/8/14.
+//  Copyright (c) 2015年 liyuchang. All rights reserved.
+//
+
+#ifndef IHaveDate_IHaveDate_pch
+#define IHaveDate_IHaveDate_pch
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "Define.h"
+#endif
