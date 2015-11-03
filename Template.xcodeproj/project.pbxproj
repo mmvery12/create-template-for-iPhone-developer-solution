@@ -22,8 +22,8 @@
 		20DC88821BCF3C0A00E12523 /* CellTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87BB1BCF3C0A00E12523 /* CellTextField.m */; };
 		20DC88831BCF3C0A00E12523 /* URLScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87BE1BCF3C0A00E12523 /* URLScheme.m */; };
 		20DC88841BCF3C0A00E12523 /* Verify.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87C11BCF3C0A00E12523 /* Verify.m */; };
-		20DC88851BCF3C0A00E12523 /* UIKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87C41BCF3C0A00E12523 /* UIKeyboardView.m */; };
-		20DC88861BCF3C0A00E12523 /* UIKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87C61BCF3C0A00E12523 /* UIKeyboardViewController.m */; };
+		20DC88851BCF3C0A00E12523 /* UIKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87C41BCF3C0A00E12523 /* UIKeyboardView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		20DC88861BCF3C0A00E12523 /* UIKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87C61BCF3C0A00E12523 /* UIKeyboardViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		20DC88871BCF3C0A00E12523 /* PingPayAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87C91BCF3C0A00E12523 /* PingPayAction.m */; };
 		20DC88881BCF3C0A00E12523 /* PopSingleInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87CD1BCF3C0A00E12523 /* PopSingleInstance.m */; };
 		20DC88891BCF3C0A00E12523 /* PopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87D01BCF3C0A00E12523 /* PopView.m */; };
@@ -45,7 +45,7 @@
 		20DC88991BCF3C0A00E12523 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87F81BCF3C0A00E12523 /* AFURLRequestSerialization.m */; };
 		20DC889A1BCF3C0A00E12523 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87FA1BCF3C0A00E12523 /* AFURLResponseSerialization.m */; };
 		20DC889B1BCF3C0A00E12523 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87FC1BCF3C0A00E12523 /* AFURLSessionManager.m */; };
-		20DC889C1BCF3C0A00E12523 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87FF1BCF3C0A00E12523 /* JSONKit.m */; };
+		20DC889C1BCF3C0A00E12523 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87FF1BCF3C0A00E12523 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		20DC889D1BCF3C0A00E12523 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20DC88021BCF3C0A00E12523 /* Info.plist */; };
 		20DC889E1BCF3C0A00E12523 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC88041BCF3C0A00E12523 /* MASCompositeConstraint.m */; };
 		20DC889F1BCF3C0A00E12523 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC88071BCF3C0A00E12523 /* MASConstraint.m */; };
