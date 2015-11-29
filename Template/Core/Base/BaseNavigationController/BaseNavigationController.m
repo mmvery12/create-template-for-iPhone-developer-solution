@@ -95,29 +95,16 @@
 
 -(void)navbarConfig
 {
-//    [UIColor whiteColor],NSBackgroundColorAttributeName
     [[UINavigationBar appearance]setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,[UIFont systemFontOfSize:20],NSFontAttributeName,nil]];
 
-    UIGraphicsEndImageContext();
-    
     if (iOS7||iOS8) {
     
         if (self.color) {
-            
-            CAGradientLayer *colorLayer = [CAGradientLayer layer];
-            colorLayer.colors = @[(__bridge id)self.color.CGColor,
-                                  (__bridge id)[self.color colorWithAlphaComponent:0.7].CGColor];
-            colorLayer.locations  = @[@(0),@(1)];
-            colorLayer.endPoint = CGPointMake(0, 1);
-            colorLayer.startPoint   = CGPointMake(0, 0);
-            colorLayer.frame = CGRectMake(0, 0, self.view.frame.size.width, 64);
-            
-            UIGraphicsBeginImageContext(colorLayer.bounds.size);
-            [colorLayer renderInContext:UIGraphicsGetCurrentContext()];
-            UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-            UIGraphicsEndImageContext();
-            
-            [self.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+            UIGraphicsBeginImageContextWithOptions(CGSizeMake([UIScreen mainScreen].bounds.size.width, 64), NO, [UIScreen mainScreen].scale);
+            [self.color set];
+            UIRectFill(CGRectMake(0, 0, self.navigationBar.frame.size.width, 64));
+            UIImage *pressedColorImg = UIGraphicsGetImageFromCurrentImageContext();
+            [self.navigationBar setBackgroundImage:pressedColorImg forBarMetrics:UIBarMetricsDefault];
             [self.navigationBar setShadowImage:[UIImage new]];
 
         }else
@@ -139,7 +126,7 @@
         UIGraphicsEndImageContext();
         [self.navigationBar setBackgroundImage:pressedColorImg forBarMetrics:UIBarMetricsDefault];
     }
-    self.navigationBar.translucent=NO;
+    self.navigationBar.translucent=YES;
 }
 
 -(UIViewController *)popViewControllerAnimated:(BOOL)animated
@@ -197,11 +184,8 @@
     @synchronized(self)
     {
         //gesture --begin
-//        {
-//            [__snapshotArray addObject:[self.visibleViewController.view snapshot]];
-//        }
         {
-            [__snapshotArray addObject:[self.view snapshot]];
+            [__snapshotArray addObject:[self.visibleViewController.view snapshot]];
         }
         [__snapshotBarArray addObject:[self barSnapshot]];
         __centerCoverView.hidden = YES;
@@ -329,7 +313,7 @@
     __canDragBack = YES;
     {
         UIScreenEdgePanGestureRecognizer *popRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(paningGestureReceive:)];
-        popRecognizer.edges = UIRectEdgeLeft;
+//        popRecognizer.edges = UIRectEdgeAll;
         [self.view addGestureRecognizer:popRecognizer];
         
         if (iOS7) self.navigationController.interactivePopGestureRecognizer.enabled = NO;

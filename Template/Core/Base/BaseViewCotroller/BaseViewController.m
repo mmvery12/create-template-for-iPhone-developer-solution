@@ -47,10 +47,9 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
     if (iOS7||iOS8) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.automaticallyAdjustsScrollViewInsets = YES;
+        self.edgesForExtendedLayout = UIRectEdgeAll;
         self.extendedLayoutIncludesOpaqueBars = NO;
     }
     [self viewDidLoadFirstInitView];
@@ -58,6 +57,10 @@
     [self viewDidLoadThirdDoNetWork];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showStatusBar) name:KShowStatusBar object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hiddenStatusBar) name:KHiddenStatusBar object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(htmlRefresh) name:@"KHtmlRefresh" object:nil];
+    
+    self.view.backgroundColor = kColor(246, 246, 246);
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle
@@ -73,7 +76,10 @@
     return hiddenStatus;
 }
 
-
+-(void)htmlRefresh
+{
+    
+}
 
 
 
@@ -243,6 +249,16 @@
 
 -(void)dealloc
 {
+    @synchronized(self)
+    {
+        for (UIView *sub in self.view.subviews) {
+            if ([sub isKindOfClass:[UIScrollView class]]) {
+                UIScrollView *scroll = (id)sub;
+                [scroll removeFooter];
+                [scroll removeHeader];
+            }
+        }
+    }
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -257,6 +273,15 @@
     CGFloat dheight = size.width/((float)width/(float)height);
     return dheight;
 }
+
+//通过样稿的长来于当前屏幕的长得出比例，适配样稿里面的元件的比例
+-(CGSize) resizewithtemplate:(CGSize)_templatesize :(CGSize)_viewsize
+{
+    CGSize size = [UIScreen mainScreen].bounds.size;
+    CGFloat scale = size.width/_templatesize.width;
+    return CGSizeMake(_viewsize.width*scale, _viewsize.height*scale);
+}
+
 
 -(void)endEdit
 {
@@ -324,6 +349,8 @@
 {}
 -(void)append;
 {}
+
+
 
 
 

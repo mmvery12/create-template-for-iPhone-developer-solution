@@ -6,14 +6,22 @@
 //  Copyright (c) 2015年 liyuchang. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, FilePath) {
+#import <Foundation/Foundation.h>
+#define docDir  [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+
+#define cachesDir  [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+
+#define temoDir  NSTemporaryDirectory()
+
+typedef NS_ENUM(NSInteger, FilePathType) {
     DocumentPath,
     TempPath,
     CachePath
 };
 
 @interface FileManager : NSObject
-+(BOOL)CreateFileWithName:(NSString *)name path:(FilePath)path data:(NSData *)data;
++(NSString *)CreateFileWithName:(NSString *)name path:(FilePathType)pathType data:(NSData *)data;
++(void)RemoveFileWithName:(NSString *)name path:(FilePathType)pathtye;
++(id)fileWithName:(NSString *)name path:(FilePathType)pathtype;
 @end

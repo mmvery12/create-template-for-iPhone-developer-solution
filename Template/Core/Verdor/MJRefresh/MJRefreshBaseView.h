@@ -27,6 +27,9 @@ typedef enum {
  类的声明
  */
 @interface MJRefreshBaseView : UIView
+
+@property (nonatomic,assign)BOOL isAdjust;
+
 #pragma mark - 父控件
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, assign, readonly) UIEdgeInsets scrollViewOriginalInset;
@@ -35,6 +38,8 @@ typedef enum {
 @property (nonatomic, weak, readonly) UILabel *statusLabel;
 @property (nonatomic, weak, readonly) UIImageView *arrowImage;
 @property (nonatomic, weak, readonly) UIActivityIndicatorView *activityView;
+
+@property (assign, nonatomic) BOOL refreshZeroContentInset;
 
 #pragma mark - 回调
 /**

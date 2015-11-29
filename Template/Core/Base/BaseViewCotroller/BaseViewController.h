@@ -34,6 +34,9 @@ typedef void (^Call)(void);
 
 //图片比例高度换算
 -(CGFloat)adjustHeightWithWidth:(CGFloat)width height:(CGFloat)height;
+
+-(CGSize) resizewithtemplate:(CGSize)_templatesize :(CGSize)_viewsize;
+
 //label设置字体颜色等综合方法
 -(void)labelStyle:(UILabel *)label textAlignment:(NSTextAlignment)alignment color:(UIColor *)color font:(UIFont *)font;
 //label高度

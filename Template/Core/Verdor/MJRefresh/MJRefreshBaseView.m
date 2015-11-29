@@ -110,7 +110,11 @@
         // 记录UIScrollView
         _scrollView = (UIScrollView *)newSuperview;
         // 记录UIScrollView最开始的contentInset
+        
         _scrollViewOriginalInset = _scrollView.contentInset;
+        if (self.isAdjust) {
+            _scrollViewOriginalInset.top += 64;
+        }
     }
 }
 
@@ -135,7 +139,7 @@
     if (self.window) {
         self.state = MJRefreshStateRefreshing;
     } else {
-#warning 不能调用set方法
+//#warning 不能调用set方法
         _state = MJRefreshStateWillRefreshing;
         [super setNeedsDisplay];
     }
@@ -189,10 +193,17 @@
 
 - (void)setState:(MJRefreshState)state
 {
-    // 0.存储当前的contentInset
-    if (self.state != MJRefreshStateRefreshing) {
-        _scrollViewOriginalInset = self.scrollView.contentInset;
-    }
+    /*
+     下面的代码被注释了，会导致scrollview在初始化header/footer后再添加contentinset时，计算出错，将此段代码去除仅仅为了特定需求
+     2015.8.9
+     李煜昌
+     18918539507
+     有限保修。。。。。。。。。。。。。。。。
+     */
+//    // 0.存储当前的contentInset
+//    if (self.state != MJRefreshStateRefreshing) {
+//        _scrollViewOriginalInset = self.scrollView.contentInset;
+//    }
     
     // 1.一样的就直接返回
     if (self.state == state) return;
@@ -221,10 +232,15 @@
             
             // 回调
             if ([self.beginRefreshingTaget respondsToSelector:self.beginRefreshingAction]) {
-                //ENABLE_STRICT_OBJC_MSGSEND = no即可
-                objc_msgSend(self.beginRefreshingTaget, self.beginRefreshingAction, self);
+                if (self.refreshZeroContentInset) {
+                    objc_msgSend(self.beginRefreshingTaget, self.beginRefreshingAction, self);
+                }else
+                {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        objc_msgSend(self.beginRefreshingTaget, self.beginRefreshingAction, self);
+                    });
+                }
             }
-            
             if (self.beginRefreshingCallback) {
                 self.beginRefreshingCallback();
             }

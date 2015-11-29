@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 itcast. All rights reserved.
 //
 
-const CGFloat MJRefreshViewHeight = 64.0;
+const CGFloat MJRefreshViewHeight = 36.0;
 const CGFloat MJRefreshFastAnimationDuration = 0.25;
 const CGFloat MJRefreshSlowAnimationDuration = 0.4;
 

@@ -22,4 +22,5 @@
 #import "TImeConvert.h"
 #import "UIView+ExternOtherMeth.h"
 #import "FileManager.h"
+#import "PictureRotationCollectionView.h"
 #endif

@@ -11,5 +11,5 @@
 
 #import "BaseViewController.h"
 #import "BaseNavigationController.h"
-
+#import "BaseTabBarController.h"
 #endif

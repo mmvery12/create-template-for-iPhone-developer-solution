@@ -24,5 +24,11 @@ typedef void (^SpecialBlock)(void);
 +(AFHTTPRequestOperation *)urlGet:(NSString *)url params:(RequestObj *)obj success:(SuccessBlock)successBlock paramsError:(ParamsErrorBlock)paramsErrorBlock faild:(FaildBlock)falidBlock final:(SpecialBlock)final;
 
 +(AFHTTPRequestOperation *)urlPost:(NSString *)url params:(RequestObj *)obj success:(SuccessBlock)successBlock paramsError:(ParamsErrorBlock)paramsErrorBlock faild:(FaildBlock)falidBlock final:(SpecialBlock)final;
+
+
++(AFHTTPRequestOperation *)urlPostData:(NSString *)url params:(EntityBase *)obj data:(NSString *)fileurl success:(SuccessBlock)successBlock paramsError:(ParamsErrorBlock)paramsErrorBlock faild:(FaildBlock)falidBlock final:(SpecialBlock)final;
+
++(void)clearSession;
+
 +(void)CancelRequestOperation:(AFHTTPRequestOperation *)operation;
 @end

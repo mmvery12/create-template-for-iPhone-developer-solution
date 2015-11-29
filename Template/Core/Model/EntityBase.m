@@ -24,8 +24,16 @@
     self = [super init];
     if (self) {
         _delegate = self;
-        _paramsSpecialNameDict = [NSDictionary dictionaryWithDictionary:[_delegate paramsSpecialNameConvertAdapter]] ;
-        _arrayContainObjIsEntyBaseObjNeedToEncodeDict = [NSDictionary dictionaryWithDictionary:[_delegate arrayContainObjIsEntyBaseObjNeedToEncode]];
+        if ([_delegate respondsToSelector:@selector(paramsSpecialNameConvertAdapter)]) {
+            _paramsSpecialNameDict = [NSDictionary dictionaryWithDictionary:[_delegate paramsSpecialNameConvertAdapter]] ;
+        }
+        else
+            _paramsSpecialNameDict = @{};
+        if ([_delegate respondsToSelector:@selector(arrayContainObjIsEntyBaseObjNeedToEncode)]) {
+            _arrayContainObjIsEntyBaseObjNeedToEncodeDict = [NSDictionary dictionaryWithDictionary:[_delegate arrayContainObjIsEntyBaseObjNeedToEncode]];
+        }else
+            _arrayContainObjIsEntyBaseObjNeedToEncodeDict = @{};
+        
     }
     return self;
 }
@@ -326,6 +334,6 @@
 
 -(id)getRequestParmars
 {
-    return [NSNull new];
+    return @{};
 }
 @end

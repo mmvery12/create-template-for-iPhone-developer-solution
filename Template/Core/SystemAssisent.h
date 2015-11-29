@@ -97,6 +97,7 @@
 }
 @end
 
+
 //#define XNSArray(...)	\
 //NSArray *getArr(id first,...) \
 //{ \

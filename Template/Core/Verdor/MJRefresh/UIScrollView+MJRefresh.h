@@ -27,6 +27,8 @@
  */
 - (void)addHeaderWithTarget:(id)target action:(SEL)action;
 
+- (void)addHeaderWithTarget:(id)target action:(SEL)action isadjust:(BOOL)adjust;
+
 /**
  *  移除下拉刷新头部控件
  */
@@ -63,6 +65,8 @@
  */
 - (void)addFooterWithTarget:(id)target action:(SEL)action;
 
+- (void)addFooterWithTarget:(id)target action:(SEL)action isadjust:(BOOL)adjust;
+
 /**
  *  移除上拉刷新尾部控件
  */
@@ -79,6 +83,13 @@
 - (void)footerEndRefreshing;
 
 /**
+ *  让上拉刷新尾部控件停止刷新状态
+ */
+- (void)footerEndRefreshing:(BOOL)zeroContentInset;
+
+- (void)footerRefreshZeroInset;
+
+/**
  *  下拉刷新头部控件的可见性
  */
 @property (nonatomic, assign, getter = isFooterHidden) BOOL footerHidden;
@@ -86,8 +97,8 @@
 /**
  *  设置尾部控件的文字
  */
-@property (copy, nonatomic) NSString *footerPullToRefreshText; // 默认:NSLocalizedString(@"上拉可以加载更多数据",@"")
-@property (copy, nonatomic) NSString *footerReleaseToRefreshText; // 默认:NSLocalizedString(@"松开立即加载更多数据",@"")
+@property (copy, nonatomic) NSString *footerPullToRefreshText; // 默认:@"上拉可以加载更多数据"
+@property (copy, nonatomic) NSString *footerReleaseToRefreshText; // 默认:@"松开立即加载更多数据"
 @property (copy, nonatomic) NSString *footerRefreshingText; // 默认:@" 正在帮你加载数据..."
 
 /**

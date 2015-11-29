@@ -86,7 +86,23 @@ static char MJRefreshFooterViewKey;
     self.header.beginRefreshingTaget = target;
     self.header.beginRefreshingAction = action;
 
+}
 
+
+- (void)addHeaderWithTarget:(id)target action:(SEL)action isadjust:(BOOL)adjust;
+{
+    // 1.创建新的header
+    if (!self.header) {
+        MJRefreshHeaderView *header = [MJRefreshHeaderView header];
+        header.isAdjust = adjust;
+        [self addSubview:header];
+        self.header = header;
+
+    }
+    
+    // 2.设置目标和回调方法
+    self.header.beginRefreshingTaget = target;
+    self.header.beginRefreshingAction = action;
 }
 
 /**
@@ -166,6 +182,21 @@ static char MJRefreshFooterViewKey;
     self.footer.beginRefreshingAction = action;
 }
 
+- (void)addFooterWithTarget:(id)target action:(SEL)action isadjust:(BOOL)adjust;
+{
+    // 1.创建新的footer
+    if (!self.footer) {
+        MJRefreshFooterView *footer = [MJRefreshFooterView footer];
+        footer.isAdjust = adjust;
+        [self addSubview:footer];
+        self.footer = footer;
+    }
+    
+    // 2.设置目标和回调方法
+    self.footer.beginRefreshingTaget = target;
+    self.footer.beginRefreshingAction = action;
+}
+
 /**
  *  移除上拉刷新尾部控件
  */
@@ -189,6 +220,18 @@ static char MJRefreshFooterViewKey;
 - (void)footerEndRefreshing
 {
     [self.footer endRefreshing];
+}
+
+/**
+ *  让上拉刷新尾部控件停止刷新状态
+ */
+- (void)footerEndRefreshing:(BOOL)zeroContentInset
+{
+    [self.footer endRefreshing:zeroContentInset];
+}
+- (void)footerRefreshZeroInset;
+{
+    [self.footer setRefreshNoInset];
 }
 
 /**

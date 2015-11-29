@@ -13,6 +13,7 @@
 
 @interface MJRefreshFooterView()
 @property (assign, nonatomic) int lastRefreshCount;
+@property (assign, nonatomic) BOOL zeroContentInset;
 @end
 
 @implementation MJRefreshFooterView
@@ -32,6 +33,12 @@
     return self;
 }
 
+- (void)endRefreshing:(BOOL)zeroContentInset
+{
+    self.zeroContentInset = zeroContentInset;
+    self.state = MJRefreshStateNormal;
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -42,7 +49,6 @@
 - (void)willMoveToSuperview:(UIView *)newSuperview
 {
     [super willMoveToSuperview:newSuperview];
-    
     // 旧的父控件
     [self.superview removeObserver:self forKeyPath:MJRefreshContentSize context:nil];
     
@@ -77,7 +83,7 @@
         // 调整frame
         [self adjustFrameWithContentSize];
     } else if ([MJRefreshContentOffset isEqualToString:keyPath]) {
-#warning 这个返回一定要放这个位置
+//#warning 这个返回一定要放这个位置
         // 如果正在刷新，直接返回
         if (self.state == MJRefreshStateRefreshing) return;
         
@@ -101,15 +107,29 @@
     
     if (self.scrollView.isDragging) {
         // 普通 和 即将刷新 的临界点
-        CGFloat normal2pullingOffsetY = happenOffsetY + self.height;
+//// --------- origin beign
+//        CGFloat normal2pullingOffsetY = happenOffsetY + self.height;
+//        if (self.state == MJRefreshStateNormal && currentOffsetY > normal2pullingOffsetY) {
+//            // 转为即将刷新状态
+//            self.state = MJRefreshStatePulling;
+//        } else if (self.state == MJRefreshStatePulling && currentOffsetY <= normal2pullingOffsetY) {
+//            // 转为普通状态
+//            self.state = MJRefreshStateNormal;
+//        }
+//// --------- origin end
+//
         
-        if (self.state == MJRefreshStateNormal && currentOffsetY > normal2pullingOffsetY) {
-            // 转为即将刷新状态
-            self.state = MJRefreshStatePulling;
-        } else if (self.state == MJRefreshStatePulling && currentOffsetY <= normal2pullingOffsetY) {
-            // 转为普通状态
-            self.state = MJRefreshStateNormal;
+
+        // 0 offset refresh
+        CGFloat normal2pullingOffsetY = happenOffsetY + self.height;
+        if ([self isMemberOfClass:[MJRefreshFooterView class]]) {
+            self.height = 0;
+            normal2pullingOffsetY = happenOffsetY+self.height;
         }
+        if (self.state== MJRefreshStateNormal) {
+            self.state = MJRefreshStateRefreshing;
+        }
+        
     } else if (self.state == MJRefreshStatePulling) {// 即将刷新 && 手松开
         // 开始刷新
         self.state = MJRefreshStateRefreshing;
@@ -138,7 +158,7 @@
             if (MJRefreshStateRefreshing == oldState) {
                 self.arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
                 [UIView animateWithDuration:MJRefreshSlowAnimationDuration animations:^{
-                    self.scrollView.contentInsetBottom = self.scrollViewOriginalInset.bottom;
+                    self.scrollView.contentInsetBottom = self.scrollViewOriginalInset.bottom+(self.zeroContentInset?0:64);
                 }];
             } else {
                 // 执行动画
@@ -149,10 +169,15 @@
             
             CGFloat deltaH = [self heightForContentBreakView];
             int currentCount = [self totalDataCountInScrollView];
-            // 刚刷新完毕
-            if (MJRefreshStateRefreshing == oldState && deltaH > 0 && currentCount != self.lastRefreshCount) {
-                self.scrollView.contentOffsetY = self.scrollView.contentOffsetY;
-            }
+//            // 刚刷新完毕
+//            if (MJRefreshStateRefreshing == oldState && deltaH > 0 && currentCount != self.lastRefreshCount) {
+//                self.scrollView.contentOffsetY = self.scrollView.contentOffsetY;
+//            }
+            
+//            if (MJRefreshStateRefreshing == oldState && deltaH > 0) {
+//                self.scrollView.contentOffsetY = self.scrollView.contentOffsetY+ (self.zeroContentInset?0:64);
+//            }
+
 			break;
         }
             
@@ -170,6 +195,7 @@
             self.lastRefreshCount = [self totalDataCountInScrollView];
             
             [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
+                self.height = self.refreshZeroContentInset?0:64;
                 CGFloat bottom = self.height + self.scrollViewOriginalInset.bottom;
                 CGFloat deltaH = [self heightForContentBreakView];
                 if (deltaH < 0) { // 如果内容高度小于view的高度
@@ -183,6 +209,9 @@
         default:
             break;
 	}
+    
+    self.arrowImage.alpha = 0;
+    self.activityView.alpha = 0;
 }
 
 - (int)totalDataCountInScrollView
@@ -218,12 +247,23 @@
 - (CGFloat)happenOffsetY
 {
     CGFloat deltaH = [self heightForContentBreakView];
+    
+    CGFloat xx = 0;
+    
     if (deltaH > 0) {
-        return deltaH - self.scrollViewOriginalInset.top;
+        xx = deltaH - self.scrollViewOriginalInset.top;
     } else {
-        return - self.scrollViewOriginalInset.top;
+        xx = - self.scrollViewOriginalInset.top;
     }
+    if (self.isAdjust) {
+        xx -= 49;
+    }
+    return xx;
 }
 
+- (void)setRefreshNoInset
+{
+    self.refreshZeroContentInset = YES;
+}
 
 @end

@@ -11,14 +11,11 @@
 
 //#define Show_border
 
-#define CustomDebug
-#ifdef CustomDebug
-#else
-#endif
 
+#import "Core.h"
 
 #import "SystemAssisent.h"
-#import "Core.h"
+
 #endif
 
 

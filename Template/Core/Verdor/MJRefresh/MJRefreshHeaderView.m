@@ -214,7 +214,7 @@
             // 执行动画
             [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
                 // 1.增加滚动区域
-                CGFloat top = self.scrollViewOriginalInset.top + self.height;
+                CGFloat top = self.scrollViewOriginalInset.top + (self.height<44?44:self.height);
                 self.scrollView.contentInsetTop = top;
                 
                 // 2.设置滚动位置
