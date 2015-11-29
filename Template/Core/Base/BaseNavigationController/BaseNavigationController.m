@@ -96,36 +96,26 @@
 -(void)navbarConfig
 {
     [[UINavigationBar appearance]setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,[UIFont systemFontOfSize:20],NSFontAttributeName,nil]];
-
-    if (iOS7||iOS8) {
     
-        if (self.color) {
-            UIGraphicsBeginImageContextWithOptions(CGSizeMake([UIScreen mainScreen].bounds.size.width, 64), NO, [UIScreen mainScreen].scale);
-            [self.color set];
-            UIRectFill(CGRectMake(0, 0, self.navigationBar.frame.size.width, 64));
-            UIImage *pressedColorImg = UIGraphicsGetImageFromCurrentImageContext();
-            [self.navigationBar setBackgroundImage:pressedColorImg forBarMetrics:UIBarMetricsDefault];
-            [self.navigationBar setShadowImage:[UIImage new]];
-
-        }else
-            if (self.image) {
-                [self.navigationBar setBackgroundImage:self.image forBarMetrics:UIBarMetricsDefault];
-                [self.navigationBar setShadowImage:[UIImage new]];
-            }
+    if (self.color) {
+        if (iOS7||iOS8) {
+            self.navigationBar.barTintColor = self.color;
+        }
+        self.navigationBar.tintColor = self.color;
     }else
-    {
-        UIGraphicsBeginImageContextWithOptions(self.navigationBar.frame.size, NO, [UIScreen mainScreen].scale);
-        if (self.color) {
-            [self.color set];
-        }else
-            if (self.image) {
-                [[UIColor colorWithPatternImage:self.image] set];
-            }
-        UIRectFill(CGRectMake(0, 0, self.navigationBar.frame.size.width, self.navigationBar.frame.size.height));
+    if (self.image) {
+        CGFloat height = self.navigationBar.frame.size.height;
+        if (iOS7||iOS8) {
+            height = 64;
+        }
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake([UIScreen mainScreen].bounds.size.width, height), NO, [UIScreen mainScreen].scale);
+        [self.color set];
+        UIRectFill(CGRectMake(0, 0, self.navigationBar.frame.size.width, height));
         UIImage *pressedColorImg = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
         [self.navigationBar setBackgroundImage:pressedColorImg forBarMetrics:UIBarMetricsDefault];
+        [self.navigationBar setShadowImage:[UIImage new]];
     }
+    
     self.navigationBar.translucent=YES;
 }
 
