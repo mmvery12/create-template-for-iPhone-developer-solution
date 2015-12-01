@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		204B480F1C0DF53A0059DF43 /* IOS7ViewControllerAnimateTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 204B480E1C0DF53A0059DF43 /* IOS7ViewControllerAnimateTransitioning.m */; };
 		20A4D9131C0B496300D0488C /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A4D9121C0B496300D0488C /* FileManager.m */; };
 		20A4D9171C0D87BC00D0488C /* PictureRotationCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A4D9161C0D87BC00D0488C /* PictureRotationCollectionView.m */; };
 		20A4D91B1C0D87DE00D0488C /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A4D91A1C0D87DE00D0488C /* BaseTabBarController.m */; };
@@ -105,6 +106,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		204B480D1C0DF53A0059DF43 /* IOS7ViewControllerAnimateTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOS7ViewControllerAnimateTransitioning.h; sourceTree = "<group>"; };
+		204B480E1C0DF53A0059DF43 /* IOS7ViewControllerAnimateTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOS7ViewControllerAnimateTransitioning.m; sourceTree = "<group>"; };
 		20A4D9111C0B496300D0488C /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileManager.h; path = Template/Core/Tool/FileManager/FileManager.h; sourceTree = SOURCE_ROOT; };
 		20A4D9121C0B496300D0488C /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileManager.m; path = Template/Core/Tool/FileManager/FileManager.m; sourceTree = SOURCE_ROOT; };
 		20A4D9151C0D87BC00D0488C /* PictureRotationCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureRotationCollectionView.h; sourceTree = "<group>"; };
@@ -419,6 +422,8 @@
 		20DC87A51BCF3C0A00E12523 /* IOS7 animation */ = {
 			isa = PBXGroup;
 			children = (
+				204B480D1C0DF53A0059DF43 /* IOS7ViewControllerAnimateTransitioning.h */,
+				204B480E1C0DF53A0059DF43 /* IOS7ViewControllerAnimateTransitioning.m */,
 			);
 			path = "IOS7 animation";
 			sourceTree = "<group>";
@@ -986,6 +991,7 @@
 				20DC88BC1BCF3C0A00E12523 /* NSData+ImageContentType.m in Sources */,
 				20DC88CF1BCF3C0A00E12523 /* AppDelegate.m in Sources */,
 				20A4D9171C0D87BC00D0488C /* PictureRotationCollectionView.m in Sources */,
+				204B480F1C0DF53A0059DF43 /* IOS7ViewControllerAnimateTransitioning.m in Sources */,
 				20DC88AF1BCF3C0A00E12523 /* UIView+Extension.m in Sources */,
 				20DC88A41BCF3C0A00E12523 /* NSArray+MASAdditions.m in Sources */,
 				20DC88801BCF3C0A00E12523 /* CellLayout.m in Sources */,
