@@ -32,7 +32,7 @@
     return [manager GET:url parameters:[obj getRequestParmars] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         {
             NSDictionary *fields= [operation.response allHeaderFields];
-            NSArray *cookies=[NSHTTPCookie cookiesWithResponseHeaderFields:fields forURL:[NSURL URLWithString:OpenURL]];
+            NSArray *cookies=[NSHTTPCookie cookiesWithResponseHeaderFields:fields forURL:[NSURL URLWithString:url]];
             NSDictionary* requestFields=[NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
             [[NSUserDefaults standardUserDefaults] setObject:[requestFields objectForKey:@"Cookie"] forKey:@"sessionCookies"];
         }
@@ -71,7 +71,7 @@
         }
     }
     
-    return [manager POST:OpenURL parameters:[obj getRequestParmars] constructingBodyWithBlock:^(id formData) {
+    return [manager POST:url parameters:[obj getRequestParmars] constructingBodyWithBlock:^(id formData) {
         
         [formData appendPartWithFileURL:[NSURL fileURLWithPath:@"abc"] name:[NSString stringWithFormat:@"%lld",(long long)[[NSDate date] timeIntervalSince1970]] error:nil];
         
@@ -79,7 +79,7 @@
         
         {
             NSDictionary *fields= [operation.response allHeaderFields];
-            NSArray *cookies=[NSHTTPCookie cookiesWithResponseHeaderFields:fields forURL:[NSURL URLWithString:OpenURL]];
+            NSArray *cookies=[NSHTTPCookie cookiesWithResponseHeaderFields:fields forURL:[NSURL URLWithString:url]];
             NSDictionary* requestFields=[NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
             [[NSUserDefaults standardUserDefaults] setObject:[requestFields objectForKey:@"Cookie"] forKey:@"sessionCookies"];
             [[NSUserDefaults standardUserDefaults] synchronize];
@@ -165,7 +165,7 @@
         }
     }
     
-    return [manager POST:OpenURL parameters:[obj getRequestParmars] constructingBodyWithBlock:^(id formData) {
+    return [manager POST:url parameters:[obj getRequestParmars] constructingBodyWithBlock:^(id formData) {
         
         [formData appendPartWithFileURL:[NSURL fileURLWithPath:fileurl] name:[NSString stringWithFormat:@"%lld",(long long)[[NSDate date] timeIntervalSince1970]] error:nil];
         
@@ -173,7 +173,7 @@
         
         {
             NSDictionary *fields= [operation.response allHeaderFields];
-            NSArray *cookies=[NSHTTPCookie cookiesWithResponseHeaderFields:fields forURL:[NSURL URLWithString:OpenURL]];
+            NSArray *cookies=[NSHTTPCookie cookiesWithResponseHeaderFields:fields forURL:[NSURL URLWithString:url]];
             NSDictionary* requestFields=[NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
             [[NSUserDefaults standardUserDefaults] setObject:[requestFields objectForKey:@"Cookie"] forKey:@"sessionCookies"];
         }

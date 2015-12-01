@@ -112,14 +112,18 @@ static NSString * const reuseIdentifier = @"Cell";
         [cell addSubview:imageView];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
     }
-    IBanner *banner = _appendImagesArr[indexPath.row];
-    imageView.frame = CGRectMake(0, 0, self.frame.size.width, bannerHeight);
-    if ([_appendImagesArr[indexPath.row] isKindOfClass:[UIImage class]]) {
-        imageView.image = _appendImagesArr[indexPath.row];
-    }else if ([banner.imgUrl isKindOfClass:[NSString class]])
-    {
-        [imageView setImageWithURL:[NSURL URLWithString:ScaleImage(banner.imgUrl)] placeholderImage:[UIImage imageNamed:@"white"]];
+    id imageurl = nil;
+    if (self.imageurlatindexcallback) {
+        imageurl = self.imageurlatindexcallback(indexPath);
     }
+    if ([imageurl isKindOfClass:[NSString class]]) {
+        [imageView setImageWithURL:[NSURL URLWithString:imageurl]];
+    }
+    if ([imageurl isKindOfClass:[UIImage class]]) {
+        imageView.image = (id)imageurl;
+    }
+    imageView.frame = CGRectMake(0, 0, self.frame.size.width, bannerHeight);
+
     return cell;
 }
 

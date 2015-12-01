@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		20A4D9131C0B496300D0488C /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A4D9121C0B496300D0488C /* FileManager.m */; };
+		20A4D9171C0D87BC00D0488C /* PictureRotationCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A4D9161C0D87BC00D0488C /* PictureRotationCollectionView.m */; };
+		20A4D91B1C0D87DE00D0488C /* BaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A4D91A1C0D87DE00D0488C /* BaseTabBarController.m */; };
 		20DC88771BCF3C0A00E12523 /* IndexController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC87971BCF3C0A00E12523 /* IndexController.m */; };
 		20DC88781BCF3C0A00E12523 /* BaseNavigationController+Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC879D1BCF3C0A00E12523 /* BaseNavigationController+Rotation.m */; };
 		20DC88791BCF3C0A00E12523 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC879F1BCF3C0A00E12523 /* BaseNavigationController.m */; };
@@ -100,23 +102,15 @@
 		20DC88D01BCF3C0A00E12523 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20DC886D1BCF3C0A00E12523 /* Images.xcassets */; };
 		20DC88D11BCF3C0A00E12523 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20DC886E1BCF3C0A00E12523 /* Info.plist */; };
 		20DC88D21BCF3C0A00E12523 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC886F1BCF3C0A00E12523 /* main.m */; };
-		20DC88D31BCF3C0A00E12523 /* IHaveDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DC88751BCF3C0A00E12523 /* IHaveDateTests.m */; };
-		20DC88D41BCF3C0A00E12523 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20DC88761BCF3C0A00E12523 /* Info.plist */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		20F5BC941B7DECDF006FD95D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 20F5BC721B7DECDF006FD95D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 20F5BC791B7DECDF006FD95D;
-			remoteInfo = IHaveDate;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		20A4D9111C0B496300D0488C /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileManager.h; path = Template/Core/Tool/FileManager/FileManager.h; sourceTree = SOURCE_ROOT; };
 		20A4D9121C0B496300D0488C /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileManager.m; path = Template/Core/Tool/FileManager/FileManager.m; sourceTree = SOURCE_ROOT; };
+		20A4D9151C0D87BC00D0488C /* PictureRotationCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureRotationCollectionView.h; sourceTree = "<group>"; };
+		20A4D9161C0D87BC00D0488C /* PictureRotationCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureRotationCollectionView.m; sourceTree = "<group>"; };
+		20A4D9191C0D87DE00D0488C /* BaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabBarController.h; sourceTree = "<group>"; };
+		20A4D91A1C0D87DE00D0488C /* BaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarController.m; sourceTree = "<group>"; };
 		20DC87961BCF3C0A00E12523 /* IndexController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexController.h; sourceTree = "<group>"; };
 		20DC87971BCF3C0A00E12523 /* IndexController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexController.m; sourceTree = "<group>"; };
 		20DC879A1BCF3C0A00E12523 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
@@ -299,10 +293,7 @@
 		20DC886E1BCF3C0A00E12523 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20DC886F1BCF3C0A00E12523 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		20DC88701BCF3C0A00E12523 /* Template.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Template.pch; sourceTree = "<group>"; };
-		20DC88751BCF3C0A00E12523 /* IHaveDateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHaveDateTests.m; sourceTree = "<group>"; };
-		20DC88761BCF3C0A00E12523 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20F5BC7A1B7DECDF006FD95D /* Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Template.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		20F5BC931B7DECDF006FD95D /* TemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,13 +315,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		20F5BC901B7DECDF006FD95D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -342,6 +326,24 @@
 			);
 			name = FileManager;
 			path = "../../../../wangjia sale soft/Template/Core/Tool/FileManager";
+			sourceTree = "<group>";
+		};
+		20A4D9141C0D87BC00D0488C /* PictureRotation */ = {
+			isa = PBXGroup;
+			children = (
+				20A4D9151C0D87BC00D0488C /* PictureRotationCollectionView.h */,
+				20A4D9161C0D87BC00D0488C /* PictureRotationCollectionView.m */,
+			);
+			path = PictureRotation;
+			sourceTree = "<group>";
+		};
+		20A4D9181C0D87DE00D0488C /* BaseTabbarController */ = {
+			isa = PBXGroup;
+			children = (
+				20A4D9191C0D87DE00D0488C /* BaseTabBarController.h */,
+				20A4D91A1C0D87DE00D0488C /* BaseTabBarController.m */,
+			);
+			path = BaseTabbarController;
 			sourceTree = "<group>";
 		};
 		20DC87941BCF3C0A00E12523 /* Template */ = {
@@ -383,6 +385,7 @@
 		20DC87991BCF3C0A00E12523 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				20A4D9181C0D87DE00D0488C /* BaseTabbarController */,
 				20DC879A1BCF3C0A00E12523 /* Base.h */,
 				20DC879B1BCF3C0A00E12523 /* BaseNavigationController */,
 				20DC87A21BCF3C0A00E12523 /* BaseViewCotroller */,
@@ -439,6 +442,7 @@
 		20DC87B31BCF3C0A00E12523 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				20A4D9141C0D87BC00D0488C /* PictureRotation */,
 				205BC4041BCF71B300E961C4 /* FileManager */,
 				20DC87B41BCF3C0A00E12523 /* CellLayout */,
 				20DC87B71BCF3C0A00E12523 /* CellViews */,
@@ -862,20 +866,10 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		20DC88741BCF3C0A00E12523 /* TemplateTests */ = {
-			isa = PBXGroup;
-			children = (
-				20DC88751BCF3C0A00E12523 /* IHaveDateTests.m */,
-				20DC88761BCF3C0A00E12523 /* Info.plist */,
-			);
-			path = TemplateTests;
-			sourceTree = "<group>";
-		};
 		20F5BC711B7DECDF006FD95D = {
 			isa = PBXGroup;
 			children = (
 				20DC87941BCF3C0A00E12523 /* Template */,
-				20DC88741BCF3C0A00E12523 /* TemplateTests */,
 				20F5BC7B1B7DECDF006FD95D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -884,7 +878,6 @@
 			isa = PBXGroup;
 			children = (
 				20F5BC7A1B7DECDF006FD95D /* Template.app */,
-				20F5BC931B7DECDF006FD95D /* TemplateTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -909,24 +902,6 @@
 			productReference = 20F5BC7A1B7DECDF006FD95D /* Template.app */;
 			productType = "com.apple.product-type.application";
 		};
-		20F5BC921B7DECDF006FD95D /* TemplateTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 20F5BCA01B7DECDF006FD95D /* Build configuration list for PBXNativeTarget "TemplateTests" */;
-			buildPhases = (
-				20F5BC8F1B7DECDF006FD95D /* Sources */,
-				20F5BC901B7DECDF006FD95D /* Frameworks */,
-				20F5BC911B7DECDF006FD95D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				20F5BC951B7DECDF006FD95D /* PBXTargetDependency */,
-			);
-			name = TemplateTests;
-			productName = IHaveDateTests;
-			productReference = 20F5BC931B7DECDF006FD95D /* TemplateTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -938,10 +913,6 @@
 				TargetAttributes = {
 					20F5BC791B7DECDF006FD95D = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					20F5BC921B7DECDF006FD95D = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 20F5BC791B7DECDF006FD95D;
 					};
 				};
 			};
@@ -959,7 +930,6 @@
 			projectRoot = "";
 			targets = (
 				20F5BC791B7DECDF006FD95D /* Template */,
-				20F5BC921B7DECDF006FD95D /* TemplateTests */,
 			);
 		};
 /* End PBXProject section */
@@ -977,17 +947,9 @@
 				20DC889D1BCF3C0A00E12523 /* Info.plist in Resources */,
 				20DC88BA1BCF3C0A00E12523 /* LICENSE_SDWebImage in Resources */,
 				20DC888E1BCF3C0A00E12523 /* WarnViewBundle.bundle in Resources */,
-				20DC88D41BCF3C0A00E12523 /* Info.plist in Resources */,
 				20DC88D11BCF3C0A00E12523 /* Info.plist in Resources */,
 				20DC88B01BCF3C0A00E12523 /* AlipaySDK.bundle in Resources */,
 				20DC88A81BCF3C0A00E12523 /* MJRefresh.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		20F5BC911B7DECDF006FD95D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1012,10 +974,10 @@
 				20DC887A1BCF3C0A00E12523 /* UIView+Snapshot.m in Sources */,
 				20DC88901BCF3C0A00E12523 /* TextView.m in Sources */,
 				20DC889B1BCF3C0A00E12523 /* AFURLSessionManager.m in Sources */,
+				20A4D91B1C0D87DE00D0488C /* BaseTabBarController.m in Sources */,
 				20DC88C51BCF3C0A00E12523 /* UIImage+GIF.m in Sources */,
 				20DC88861BCF3C0A00E12523 /* UIKeyboardViewController.m in Sources */,
 				20DC887C1BCF3C0A00E12523 /* EntityBase.m in Sources */,
-				20DC88D31BCF3C0A00E12523 /* IHaveDateTests.m in Sources */,
 				20DC88A11BCF3C0A00E12523 /* MASLayoutConstraint.m in Sources */,
 				20DC88AD1BCF3C0A00E12523 /* UIScrollView+Extension.m in Sources */,
 				20DC88BF1BCF3C0A00E12523 /* SDWebImageDecoder.m in Sources */,
@@ -1023,6 +985,7 @@
 				20DC88911BCF3C0A00E12523 /* TImeConvert.m in Sources */,
 				20DC88BC1BCF3C0A00E12523 /* NSData+ImageContentType.m in Sources */,
 				20DC88CF1BCF3C0A00E12523 /* AppDelegate.m in Sources */,
+				20A4D9171C0D87BC00D0488C /* PictureRotationCollectionView.m in Sources */,
 				20DC88AF1BCF3C0A00E12523 /* UIView+Extension.m in Sources */,
 				20DC88A41BCF3C0A00E12523 /* NSArray+MASAdditions.m in Sources */,
 				20DC88801BCF3C0A00E12523 /* CellLayout.m in Sources */,
@@ -1073,22 +1036,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		20F5BC8F1B7DECDF006FD95D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		20F5BC951B7DECDF006FD95D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 20F5BC791B7DECDF006FD95D /* Template */;
-			targetProxy = 20F5BC941B7DECDF006FD95D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		20F5BC9B1B7DECDF006FD95D /* Debug */ = {
@@ -1245,40 +1193,6 @@
 			};
 			name = Release;
 		};
-		20F5BCA11B7DECDF006FD95D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = IHaveDateTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = TemplateTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IHaveDate.app/IHaveDate";
-			};
-			name = Debug;
-		};
-		20F5BCA21B7DECDF006FD95D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = IHaveDateTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = TemplateTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IHaveDate.app/IHaveDate";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1296,15 +1210,6 @@
 			buildConfigurations = (
 				20F5BC9E1B7DECDF006FD95D /* Debug */,
 				20F5BC9F1B7DECDF006FD95D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		20F5BCA01B7DECDF006FD95D /* Build configuration list for PBXNativeTarget "TemplateTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				20F5BCA11B7DECDF006FD95D /* Debug */,
-				20F5BCA21B7DECDF006FD95D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

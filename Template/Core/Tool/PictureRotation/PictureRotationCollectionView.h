@@ -10,10 +10,12 @@
 
 typedef void(^PictureRotationSelectedCallBack)(id datasource);
 
+typedef NSString *(^PictureRotationImageUrlAtIndexCallback)(NSIndexPath *indexPath);
+
 @interface PictureRotationCollectionView : UIView<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (nonatomic,retain)NSMutableArray *imagesContentArr;
 @property (nonatomic,copy)PictureRotationSelectedCallBack prCallBack;
-
+@property (nonatomic,copy)PictureRotationImageUrlAtIndexCallback imageurlatindexcallback;
 @property (nonatomic,assign)BOOL needScale;
 
 
